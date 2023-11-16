@@ -34,12 +34,12 @@ public class EnderecoController {
 		return enderecoService.listarPorId(id.longValue());
 	}
 	
-	@PostMapping
+	@PostMapping(path = "/salvar")
 	public Endereco salvar(@RequestBody Endereco novoEndereco) {
 		return enderecoService.salvar(novoEndereco);
 	}
 	
-	@PutMapping
+	@PutMapping(path = "/atualizar")
 	public boolean atualizar(@RequestBody Endereco enderecoParaAtualizar) {
 		return enderecoService.atualizar(enderecoParaAtualizar) != null;
 	}

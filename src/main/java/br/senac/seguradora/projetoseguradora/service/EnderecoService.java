@@ -2,6 +2,7 @@ package br.senac.seguradora.projetoseguradora.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.senac.seguradora.projetoseguradora.model.entidade.Endereco;
@@ -11,6 +12,7 @@ import jakarta.transaction.Transactional;
 @Service
 public class EnderecoService {
 	
+	@Autowired
 	private EnderecoRepository enderecoRepository;
 
 	@Transactional
