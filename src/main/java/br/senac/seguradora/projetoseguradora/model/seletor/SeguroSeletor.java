@@ -68,5 +68,4 @@ public class SeguroSeletor extends BaseSeletor{
 		this.carroReserva = carroReserva;
 	}
 	
-	
 }

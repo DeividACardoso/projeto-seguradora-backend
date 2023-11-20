@@ -3,6 +3,7 @@ package br.senac.seguradora.projetoseguradora.model.seletor;
 import java.time.LocalDate;
 
 public class ClienteSeletor {
+	
 	private String nome;
 	private String cpf;
 	private LocalDate dataNascimentoInicial;

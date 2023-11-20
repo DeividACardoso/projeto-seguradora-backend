@@ -46,6 +46,7 @@ public class ClienteService {
 			throw new CampoInvalidoException(mensagemValidacao);
 		}
 	}
+	
 	private String validarCampoString(String valorCampo, String nomeCampo) {
 		if(valorCampo == null || valorCampo.trim().isEmpty()) {
 			return "Informe o " + nomeCampo + " \n";

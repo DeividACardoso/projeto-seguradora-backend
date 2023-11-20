@@ -1,6 +1,7 @@
 package br.senac.seguradora.projetoseguradora.model.seletor;
 
 public abstract class BaseSeletor {
+	
 	private int pagina;
 	private int limite;
 	
