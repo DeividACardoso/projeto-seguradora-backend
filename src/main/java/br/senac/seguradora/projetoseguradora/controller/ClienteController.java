@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.senac.seguradora.projetoseguradora.exception.CampoInvalidoException;
 import br.senac.seguradora.projetoseguradora.model.entidade.Cliente;
+import br.senac.seguradora.projetoseguradora.model.seletor.ClienteSeletor;
 import br.senac.seguradora.projetoseguradora.service.ClienteService;
 
 @RestController
@@ -29,18 +31,23 @@ public class ClienteController {
 		return clienteService.listarTodos();
 	}
 	
+	@PostMapping("/filtro")
+	public List<Cliente> listarComSeletor(@RequestBody ClienteSeletor seletor){
+		return clienteService.listarComSeletor(seletor);
+	}
+	
 	@PostMapping(path = "/{id}")
 	public Cliente listarPorId(@PathVariable Integer id) {
 		return clienteService.listarPorId(id.longValue());
 	}
 	
 	@PostMapping
-	public Cliente salvar(@RequestBody Cliente novoCliente) {
+	public Cliente salvar(@RequestBody Cliente novoCliente) throws CampoInvalidoException {
 		return clienteService.salvar(novoCliente);
 	}
 	
 	@PutMapping
-	public boolean atualizar(@RequestBody Cliente clienteParaAtualizar) {
+	public boolean atualizar(@RequestBody Cliente clienteParaAtualizar) throws CampoInvalidoException {
 		return clienteService.atualizar(clienteParaAtualizar) != null;
 	}
 	

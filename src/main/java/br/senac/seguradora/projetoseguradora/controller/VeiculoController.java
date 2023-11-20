@@ -56,7 +56,7 @@ public class VeiculoController {
 		}
 		
 		@DeleteMapping("/{id}")
-		public boolean excluir(@PathVariable Integer id) {
+		public boolean excluir(@PathVariable Long id) {
 			return veiculoService.excluir(id);
 		}
 		

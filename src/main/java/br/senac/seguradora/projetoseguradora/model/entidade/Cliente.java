@@ -20,24 +20,25 @@ public class Cliente {
 	private Integer id;
 	private String nome;
 	private String cpf;
-	private LocalDate dtnascimento;
+	private LocalDate dataNascimento;
 	private String telefone;
 	@ManyToOne
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 	
-	public Cliente(Integer id, String nome, String cpf, LocalDate dtnascimento, String telefone, Endereco endereco) {
+	public Cliente(Integer id, String nome, String cpf, LocalDate dataNascimento, String telefone, Endereco endereco) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.dtnascimento = dtnascimento;
+		this.dataNascimento = dataNascimento;
 		this.telefone = telefone;
 		this.endereco = endereco;
 	}
 	
 	public Cliente() {
 	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -56,11 +57,11 @@ public class Cliente {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public LocalDate getDtnascimento() {
-		return dtnascimento;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
-	public void setDtnascimento(LocalDate dtnascimento) {
-		this.dtnascimento = dtnascimento;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 	public String getTelefone() {
 		return telefone;
@@ -74,4 +75,5 @@ public class Cliente {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+	
 }
