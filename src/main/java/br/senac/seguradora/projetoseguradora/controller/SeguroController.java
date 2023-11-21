@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.sc.senac.dw.exception.CampoInvalidoException;
+import br.sc.senac.dw.model.entidade.Produto;
+import br.sc.senac.dw.model.seletor.ProdutoSeletor;
 import br.senac.seguradora.projetoseguradora.model.entidade.Seguro;
+import br.senac.seguradora.projetoseguradora.model.seletor.SeguroSeletor;
 import br.senac.seguradora.projetoseguradora.service.SeguroService;
 
 @RestController
@@ -28,19 +33,34 @@ import br.senac.seguradora.projetoseguradora.service.SeguroService;
 		return seguroService.listarTodos();
 	}
 	
+	@PostMapping("/filtro")
+	public List<Seguro> listarComSeletor(@RequestBody SeguroSeletor seletor){
+		return seguroService.listarComSeletor(seletor);
+	}
+	
+	@GetMapping("/{id}")
+	public Seguro pesquisarPorId(@PathVariable Integer id){
+		return seguroService.consultarPorId(id);
+	}
+	
 	@PostMapping(path = "/{id}")
 	public Seguro listarPorId(@PathVariable Integer id) {
 		return seguroService.listarPorId(id);
 	}
 	
 	@PostMapping
-	public Seguro salvar(@RequestBody Seguro novoSeguro) {
+	public Seguro salvar(@RequestBody Seguro novoSeguro) throws CampoInvalidoException {
 		return seguroService.salvar(novoSeguro);
 	}
 	
 	@PutMapping
-	public boolean atualizar(@RequestBody Seguro seguroPAtualizar) {
+	public boolean atualizar(@RequestBody Seguro seguroPAtualizar) throws CampoInvalidoException {
 		return seguroService.atualizar(seguroPAtualizar) != null;
+	}
+	
+	@DeleteMapping("/{id}")
+	public boolean excluir(@PathVariable Integer id) {
+		return seguroService.excluir(id);
 	}
 	
 }

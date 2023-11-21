@@ -44,14 +44,12 @@ public class VeiculoController {
 		}
 		
 		@PostMapping
-		public Veiculo salvar(@RequestBody Veiculo novoVeiculo) 
-				throws CampoInvalidoException {
+		public Veiculo salvar(@RequestBody Veiculo novoVeiculo) throws CampoInvalidoException {
 			return veiculoService.inserir(novoVeiculo);
 		}
 
 		@PutMapping()
-		public boolean atualizar(@RequestBody Veiculo veiculoParaAtualizar) 
-				throws CampoInvalidoException {
+		public boolean atualizar(@RequestBody Veiculo veiculoParaAtualizar) throws CampoInvalidoException {
 			return veiculoService.atualizar(veiculoParaAtualizar) != null;
 		}
 		

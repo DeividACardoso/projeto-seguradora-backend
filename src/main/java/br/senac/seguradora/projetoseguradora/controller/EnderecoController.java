@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.senac.seguradora.projetoseguradora.exception.CampoInvalidoException;
 import br.senac.seguradora.projetoseguradora.model.entidade.Endereco;
 import br.senac.seguradora.projetoseguradora.service.EnderecoService;
 
@@ -35,12 +36,12 @@ public class EnderecoController {
 	}
 	
 	@PostMapping(path = "/salvar")
-	public Endereco salvar(@RequestBody Endereco novoEndereco) {
+	public Endereco salvar(@RequestBody Endereco novoEndereco) throws CampoInvalidoException {
 		return enderecoService.salvar(novoEndereco);
 	}
 	
 	@PutMapping(path = "/atualizar")
-	public boolean atualizar(@RequestBody Endereco enderecoParaAtualizar) {
+	public boolean atualizar(@RequestBody Endereco enderecoParaAtualizar) throws CampoInvalidoException {
 		return enderecoService.atualizar(enderecoParaAtualizar) != null;
 	}
 	
