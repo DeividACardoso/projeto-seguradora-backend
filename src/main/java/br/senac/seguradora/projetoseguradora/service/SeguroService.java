@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import br.sc.senac.dw.model.entidade.Produto;
-import br.sc.senac.dw.model.specification.ProdutoSpecifications;
 import br.senac.seguradora.projetoseguradora.model.entidade.Seguro;
 import br.senac.seguradora.projetoseguradora.model.repository.SeguroRepository;
 import br.senac.seguradora.projetoseguradora.model.seletor.SeguroSeletor;
@@ -17,6 +15,7 @@ import jakarta.transaction.Transactional;
 @Service
 public class SeguroService {
 	
+	@Autowired
 	private SeguroRepository seguroRepository;
 
 	@Transactional
