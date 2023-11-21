@@ -9,6 +9,7 @@ public class VeiculoSpecification {
 
 	public static Specification<Veiculo> comFiltros(VeiculoSeletor seletor) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	

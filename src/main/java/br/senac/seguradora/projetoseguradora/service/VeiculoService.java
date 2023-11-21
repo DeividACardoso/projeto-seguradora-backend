@@ -32,8 +32,30 @@ public class VeiculoService {
 	}
 
 	private void validarCamposObrigatorios(Veiculo novoVeiculo) throws CampoInvalidoException {
-		// TODO Auto-generated method stub
+		String mensagemValidacao = "";
+		mensagemValidacao += validarCampoString(novoVeiculo.getMarca(), "marca");
+		mensagemValidacao += validarCampoString(novoVeiculo.getModelo(), "modelo");
+		mensagemValidacao += validarCampoString(novoVeiculo.getAnoModelo(), "anoModelo");
+		mensagemValidacao += validarCampoDouble(novoVeiculo.getValor(), "valor");
+		mensagemValidacao += validarCampoString(novoVeiculo.getPlacaVeiculo(), "placaVeiculo");
 		
+		if(!mensagemValidacao.isEmpty()) {
+			throw new CampoInvalidoException(mensagemValidacao);
+		}
+	}
+
+	private String validarCampoString(String valorCampo, String nomeCampo) {
+		if(valorCampo == null || valorCampo.trim().isEmpty()) {
+			return "Informe o " + nomeCampo + " \n";
+		}
+		return "";
+	}
+	
+	private String validarCampoDouble(double valorCampo, String nomeCampo) { //valorCampo == null ?????????????
+		if(valorCampo == 0) {
+			return "Informe o " + nomeCampo + " \n";
+		}
+		return "";
 	}
 
 	public Object atualizar(Veiculo veiculoParaAtualizar) throws CampoInvalidoException {
