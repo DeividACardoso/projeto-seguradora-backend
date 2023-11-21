@@ -51,8 +51,8 @@ public class VeiculoService {
 		return "";
 	}
 	
-	private String validarCampoDouble(double valorCampo, String nomeCampo) { //valorCampo == null ?????????????
-		if(valorCampo == 0) {
+	private String validarCampoDouble(Double valorCampo, String nomeCampo) {
+		if(valorCampo == null) {
 			return "Informe o " + nomeCampo + " \n";
 		}
 		return "";

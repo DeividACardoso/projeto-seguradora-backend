@@ -18,10 +18,10 @@ public class Veiculo {
 	private String marca;
 	private String modelo;
 	private String anoModelo;
-	private double valor;
+	private Double valor;
 	private String placaVeiculo;
 	
-	public Veiculo(Integer id, String marca, String modelo, String anoModelo, double valor, String placaVeiculo) {
+	public Veiculo(Integer id, String marca, String modelo, String anoModelo, Double valor, String placaVeiculo) {
 		super();
 		this.id = id;
 		this.marca = marca;
@@ -58,10 +58,10 @@ public class Veiculo {
 	public void setAnoModelo(String anoModelo) {
 		this.anoModelo = anoModelo;
 	}
-	public double getValor() {
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 	public String getPlacaVeiculo() {
