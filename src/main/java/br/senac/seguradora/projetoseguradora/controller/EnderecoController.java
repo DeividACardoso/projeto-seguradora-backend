@@ -32,7 +32,7 @@ public class EnderecoController {
 	
 	@PostMapping(path = "/{id}")
 	public Endereco listarPorId(@PathVariable Integer id){
-		return enderecoService.listarPorId(id.longValue());
+		return enderecoService.listarPorId(id);
 	}
 	
 	@PostMapping(path = "/salvar")

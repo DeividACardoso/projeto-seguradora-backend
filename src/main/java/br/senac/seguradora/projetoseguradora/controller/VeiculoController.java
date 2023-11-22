@@ -27,7 +27,7 @@ public class VeiculoController {
 		@Autowired 
 		private VeiculoService veiculoService;
 		
-		@GetMapping
+		@GetMapping(path = "/todos")
 		public List<Veiculo> listarTodos() {
 			List<Veiculo> veiculos = veiculoService.listarTodos();
 			return veiculos;
@@ -40,7 +40,7 @@ public class VeiculoController {
 
 		@GetMapping("/{id}")
 		public Veiculo pesquisarPorId(@PathVariable Integer id){
-			return veiculoService.consultarPorId(id.longValue());
+			return veiculoService.consultarPorId(id);
 		}
 		
 		@PostMapping
@@ -54,7 +54,7 @@ public class VeiculoController {
 		}
 		
 		@DeleteMapping("/{id}")
-		public boolean excluir(@PathVariable Long id) {
+		public boolean excluir(@PathVariable Integer id) {
 			return veiculoService.excluir(id);
 		}
 		

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import br.senac.seguradora.projetoseguradora.model.entidade.Veiculo;
 
 @Repository
-public interface VeiculoRepository extends JpaRepository<Veiculo, Long>{
+public interface VeiculoRepository extends JpaRepository<Veiculo, Integer>{
 
 	List<Veiculo> findAll(Specification<Veiculo> specification);
 	

@@ -24,7 +24,7 @@ public class SeguroService {
 	}
 
 	public Seguro listarPorId(Integer id) {
-		return seguroRepository.findById(id.longValue()).get();
+		return seguroRepository.findById(id).get();
 	}
 
 	public Seguro salvar(Seguro novoSeguro) {
@@ -36,12 +36,12 @@ public class SeguroService {
 	}
 
 	public boolean excluir(Integer id) {
-		seguroRepository.deleteById(id.longValue());
+		seguroRepository.deleteById(id);
 		return true;
 	}
 
 	public Seguro consultarPorId(Integer id) {
-		return seguroRepository.findById(id.longValue()).get();
+		return seguroRepository.findById(id).get();
 	}
 
 	public List<Seguro> listarComSeletor(SeguroSeletor seletor) {

@@ -20,8 +20,8 @@ public class EnderecoService {
 		return enderecoRepository.findAll();
 	}
 
-	public Endereco listarPorId(Long id) {
-		return enderecoRepository.findById(id.longValue()).get();
+	public Endereco listarPorId(Integer id) {
+		return enderecoRepository.findById(id).get();
 	}
 
 	public Endereco salvar(Endereco novoEndereco) {
@@ -33,7 +33,7 @@ public class EnderecoService {
 	}
 
 	public boolean excluirPorId(Integer id) {
-		enderecoRepository.deleteById(id.longValue());
+		enderecoRepository.deleteById(id);
 		return true;
 	}
 

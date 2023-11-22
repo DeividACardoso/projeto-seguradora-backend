@@ -24,8 +24,8 @@ public class VeiculoService {
 		return veiculoRepository.findAll();
 	}
 
-	public Veiculo consultarPorId(Long id) {
-		return veiculoRepository.findById(id.longValue()).get();
+	public Veiculo consultarPorId(Integer id) {
+		return veiculoRepository.findById(id).get();
 	}
 
 	public Veiculo inserir(Veiculo novoVeiculo) throws CampoInvalidoException{
@@ -65,8 +65,8 @@ public class VeiculoService {
 		return veiculoRepository.save(veiculoParaAtualizar);
 	}
 
-	public boolean excluir(Long id) {
-		veiculoRepository.deleteById(id.longValue());
+	public boolean excluir(Integer id) {
+		veiculoRepository.deleteById(id);
 		return true;
 	}
 

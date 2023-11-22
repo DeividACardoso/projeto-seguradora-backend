@@ -24,8 +24,8 @@ public class ClienteService {
 		return clienteRepository.findAll();
 	}
 
-	public Cliente listarPorId(Long id) {
-		return clienteRepository.findById(id.longValue()).get();
+	public Cliente listarPorId(Integer id) {
+		return clienteRepository.findById(id).get();
 	}
 	
 	public Cliente salvar(Cliente novoCliente) throws CampoInvalidoException {
@@ -57,7 +57,7 @@ public class ClienteService {
 	}
 
 	public boolean excluirPorId(Integer id) {
-		clienteRepository.deleteById(id.longValue());
+		clienteRepository.deleteById(id);
 		return true;
 	}
 

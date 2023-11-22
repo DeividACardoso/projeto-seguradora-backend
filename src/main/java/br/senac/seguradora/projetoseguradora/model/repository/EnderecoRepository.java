@@ -10,7 +10,7 @@ import br.senac.seguradora.projetoseguradora.model.entidade.Cliente;
 import br.senac.seguradora.projetoseguradora.model.entidade.Endereco;
 
 @Repository
-public interface EnderecoRepository extends JpaRepository<Endereco, Long>{
+public interface EnderecoRepository extends JpaRepository<Endereco, Integer>{
 
 	List<Endereco> findAll(Specification<Endereco> specification);
 	
