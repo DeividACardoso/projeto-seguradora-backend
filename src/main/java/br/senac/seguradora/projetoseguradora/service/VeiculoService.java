@@ -37,13 +37,19 @@ public class VeiculoService {
 		String mensagemValidacao = "";
 		mensagemValidacao += validarCampoString(novoVeiculo.getMarca(), "marca");
 		mensagemValidacao += validarCampoString(novoVeiculo.getModelo(), "modelo");
-		mensagemValidacao += validarCampoString(novoVeiculo.getAnoModelo(), "anoModelo");
+		mensagemValidacao += validarCampoInteger(novoVeiculo.getAnoModelo(), "anoModelo");
 		mensagemValidacao += validarCampoDouble(novoVeiculo.getValor(), "valor");
 		mensagemValidacao += validarCampoString(novoVeiculo.getPlacaVeiculo(), "placaVeiculo");
 		
 		if(!mensagemValidacao.isEmpty()) {
 			throw new CampoInvalidoException(mensagemValidacao);
 		}
+	}
+
+	private String validarCampoInteger(Integer anoModelo, String string) {
+		
+		
+		return null;
 	}
 
 	private String validarCampoString(String valorCampo, String nomeCampo) {
