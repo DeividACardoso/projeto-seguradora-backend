@@ -2,7 +2,7 @@ package br.senac.seguradora.projetoseguradora.model.seletor;
 
 import java.time.LocalDate;
 
-public class ClienteSeletor {
+public class ClienteSeletor extends BaseSeletor{
 	
 	private String nome;
 	private String cpf;
@@ -33,6 +33,5 @@ public class ClienteSeletor {
 	public void setDataNascimentoFinal(LocalDate dataNascimentoFinal) {
 		this.dataNascimentoFinal = dataNascimentoFinal;
 	}
-	
 	
 }

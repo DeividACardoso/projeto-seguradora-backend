@@ -2,12 +2,14 @@ package br.senac.seguradora.projetoseguradora.model.seletor;
 
 import java.time.LocalDate;
 
-public class VeiculoSeletor {
+public class VeiculoSeletor extends BaseSeletor{
 
 	private String marca;
 	private String modelo;
 	private String placaVeiculo;
 	private LocalDate anoModelo;
+	private Double valor;
+	
 	public String getMarca() {
 		return marca;
 	}
@@ -31,6 +33,12 @@ public class VeiculoSeletor {
 	}
 	public void setAnoModelo(LocalDate anoModelo) {
 		this.anoModelo = anoModelo;
+	}
+	public Double getValor() {
+		return valor;
+	}
+	public void setValor(Double valor) {
+		this.valor = valor;
 	}
 	
 }
