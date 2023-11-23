@@ -17,23 +17,25 @@ public class Veiculo {
 	private Integer id;
 	private String marca;
 	private String modelo;
-	private String anoModelo;
+	private Integer anoModelo;
+	private String combustivel;
 	private Double valor;
 	private String placaVeiculo;
 	
-	public Veiculo(Integer id, String marca, String modelo, String anoModelo, Double valor, String placaVeiculo) {
+	public Veiculo(Integer id, String marca, String modelo, Integer anoModelo, String combustivel, Double valor,
+			String placaVeiculo) {
 		super();
 		this.id = id;
 		this.marca = marca;
 		this.modelo = modelo;
 		this.anoModelo = anoModelo;
+		this.combustivel = combustivel;
 		this.valor = valor;
 		this.placaVeiculo = placaVeiculo;
 	}
 
 	public Veiculo() {
 	}
-
 	public Integer getId() {
 		return id;
 	}
@@ -52,10 +54,10 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public String getAnoModelo() {
+	public Integer getAnoModelo() {
 		return anoModelo;
 	}
-	public void setAnoModelo(String anoModelo) {
+	public void setAnoModelo(Integer anoModelo) {
 		this.anoModelo = anoModelo;
 	}
 	public Double getValor() {
@@ -69,5 +71,11 @@ public class Veiculo {
 	}
 	public void setPlacaVeiculo(String placaVeiculo) {
 		this.placaVeiculo = placaVeiculo;
+	}
+	public String getCombustivel() {
+		return combustivel;
+	}
+	public void setCombustivel(String combustivel) {
+		this.combustivel = combustivel;
 	}
 }

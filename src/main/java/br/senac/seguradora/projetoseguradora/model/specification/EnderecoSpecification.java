@@ -15,12 +15,18 @@ public class EnderecoSpecification {
 		return (root, query, cb) -> {
 			List<Predicate> predicates = new ArrayList<>();
 			
-			if(seletor.getNumero() != null && !seletor.getNumero().trim().isEmpty()) {
-				predicates.add(cb.like(root.get("numero"), "%" + seletor.getNumero() + "%"));
-			}
-			if(seletor.getCep() != null && !seletor.getCep().trim().isEmpty()) {
-				predicates.add(cb.like(root.get("cep"), "%" + seletor.getCep() + "%"));
-			}
+//			if(seletor.getNumero() != null && !seletor.getNumero().trim().isEmpty()) {
+//				predicates.add(cb.like(root.get("numero"), "%" + seletor.getNumero() + "%"));
+//			}
+			if(seletor.getNumero()!= null && !seletor.getNumero().isEmpty()) {
+            	predicates.add(cb.equal(root.join("numero"), seletor.getNumero()));
+            }
+//			if(seletor.getCep() != null && !seletor.getCep().trim().isEmpty()) {
+//				predicates.add(cb.like(root.get("cep"), "%" + seletor.getCep() + "%"));
+//			}
+			if(seletor.getCep()!= null && !seletor.getCep().isEmpty()) {
+            	predicates.add(cb.equal(root.join("cep"), seletor.getCep()));
+            }
 			if(seletor.getRua() != null && !seletor.getRua().trim().isEmpty()) {
 				predicates.add(cb.like(root.get("rua"), "%" + seletor.getRua() + "%"));
 			} 
@@ -36,6 +42,5 @@ public class EnderecoSpecification {
 			return cb.and(predicates.toArray(new Predicate[0]));
 		};
 	}
-	
 
 }

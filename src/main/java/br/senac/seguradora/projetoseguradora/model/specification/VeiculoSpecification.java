@@ -21,16 +21,26 @@ public class VeiculoSpecification {
 			if(seletor.getModelo() != null && !seletor.getModelo().trim().isEmpty()) {
 				predicates.add(cb.like(root.get("modelo"), "%" + seletor.getModelo() + "%"));
 			}
-			if(seletor.getAnoModelo() != null && !seletor.getAnoModelo().toString().trim().isEmpty()){
-            	predicates.add(cb.between(root.get("anoModelo"), seletor.getAnoModelo(), seletor.getAnoModelo()));
-            } 
 			if(seletor.getPlacaVeiculo() != null && !seletor.getPlacaVeiculo().trim().isEmpty()) {
 				predicates.add(cb.like(root.get("placaVeiculo"), "%" + seletor.getPlacaVeiculo() + "%"));
 			}
-			if(seletor.getValor() != null && seletor.getValor() != null) {
-            	Predicate predicadoNovo = cb.between(root.get("valor"), seletor.getValor(), seletor.getValor());
-            	predicates.add(predicadoNovo);
+			
+			if(seletor.getMenorValor() != null && seletor.getMaiorValor() != null) {
+            	predicates.add(cb.between(root.get("valor"), seletor.getMenorValor(), seletor.getMaiorValor()));
+            } else if(seletor.getMenorValor() != null) {
+            	predicates.add(cb.greaterThanOrEqualTo(root.get("valor"), seletor.getMenorValor()));
+            } else if(seletor.getMaiorValor() != null) {
+            	predicates.add(cb.lessThanOrEqualTo(root.get("valor"), seletor.getMaiorValor()));
             }
+			
+			if(seletor.getMenorAnoModelo() != null && seletor.getMaiorAnoModelo() != null) {
+            	predicates.add(cb.between(root.get("ano"), seletor.getMenorAnoModelo(), seletor.getMaiorAnoModelo()));
+            } else if(seletor.getMenorAnoModelo() != null) {
+            	predicates.add(cb.greaterThanOrEqualTo(root.get("ano"), seletor.getMenorAnoModelo()));
+            } else if(seletor.getMaiorAnoModelo() != null) {
+            	predicates.add(cb.lessThanOrEqualTo(root.get("ano"), seletor.getMaiorAnoModelo()));
+            }
+			
 			return cb.and(predicates.toArray(new Predicate[0]));
 		};
 	}
