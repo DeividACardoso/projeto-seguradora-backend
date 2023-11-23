@@ -3,10 +3,13 @@ package br.senac.seguradora.projetoseguradora.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import br.senac.seguradora.projetoseguradora.model.entidade.Endereco;
 import br.senac.seguradora.projetoseguradora.model.repository.EnderecoRepository;
+import br.senac.seguradora.projetoseguradora.model.seletor.EnderecoSeletor;
+import br.senac.seguradora.projetoseguradora.model.specification.EnderecoSpecification;
 import jakarta.transaction.Transactional;
 
 @Service
@@ -35,6 +38,11 @@ public class EnderecoService {
 	public boolean excluirPorId(Integer id) {
 		enderecoRepository.deleteById(id);
 		return true;
+	}
+
+	public List<Endereco> listarComSeletor(EnderecoSeletor seletor) {
+		Specification<Endereco> specification = EnderecoSpecification.comFiltros(seletor);
+		return enderecoRepository.findAll(specification);
 	}
 
 }

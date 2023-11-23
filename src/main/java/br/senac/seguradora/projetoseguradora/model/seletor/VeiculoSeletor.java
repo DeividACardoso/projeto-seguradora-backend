@@ -7,7 +7,7 @@ public class VeiculoSeletor extends BaseSeletor{
 	private String marca;
 	private String modelo;
 	private String placaVeiculo;
-	private LocalDate anoModelo;
+	private Integer anoModelo;
 	private Double valor;
 	
 	public String getMarca() {
@@ -28,10 +28,10 @@ public class VeiculoSeletor extends BaseSeletor{
 	public void setPlacaVeiculo(String placaVeiculo) {
 		this.placaVeiculo = placaVeiculo;
 	}
-	public LocalDate getAnoModelo() {
+	public Integer getAnoModelo() {
 		return anoModelo;
 	}
-	public void setAnoModelo(LocalDate anoModelo) {
+	public void setAnoModelo(Integer anoModelo) {
 		this.anoModelo = anoModelo;
 	}
 	public Double getValor() {

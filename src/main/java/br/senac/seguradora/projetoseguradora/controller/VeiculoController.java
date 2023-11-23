@@ -33,12 +33,12 @@ public class VeiculoController {
 			return veiculos;
 		}
 		
-		@PostMapping("/filtro")
+		@PostMapping(path = "/filtro")
 		public List<Veiculo> listarComSeletor(@RequestBody VeiculoSeletor seletor){
 			return veiculoService.listarComSeletor(seletor);
 		}
 
-		@GetMapping("/{id}")
+		@GetMapping(path = "/{id}")
 		public Veiculo pesquisarPorId(@PathVariable Integer id){
 			return veiculoService.consultarPorId(id);
 		}
@@ -48,17 +48,17 @@ public class VeiculoController {
 			return veiculoService.inserir(novoVeiculo);
 		}
 
-		@PutMapping()
+		@PutMapping(path = "/atualizar")
 		public boolean atualizar(@RequestBody Veiculo veiculoParaAtualizar) throws CampoInvalidoException {
 			return veiculoService.atualizar(veiculoParaAtualizar) != null;
 		}
 		
-		@DeleteMapping("/{id}")
+		@DeleteMapping(path = "/{id}")
 		public boolean excluir(@PathVariable Integer id) {
 			return veiculoService.excluir(id);
 		}
 		
-		@DeleteMapping("/{cpf}")
+		@DeleteMapping(path = "/{cpf}")
 		public boolean excluirPorCpf(@PathVariable String cpf) {
 			return false;
 		}

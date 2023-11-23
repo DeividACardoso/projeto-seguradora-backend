@@ -13,8 +13,10 @@ public class SeguroSeletor extends BaseSeletor{
 	private String nomeCliente;
 	private String placaVeiculo;
 	private String numeroProposta;
-	private LocalDate dtInicioVigencia;
-	private LocalDate dtFimVigencia;
+	private LocalDate menorDataInicio;
+	private LocalDate maiorDataInicio;
+	private LocalDate menorDataFim;
+	private LocalDate maiorDataFim;
 	private String franquia;
 	private String assistencia;
 	private String carroReserva;
@@ -37,17 +39,29 @@ public class SeguroSeletor extends BaseSeletor{
 	public void setNumeroProposta(String numeroProposta) {
 		this.numeroProposta = numeroProposta;
 	}
-	public LocalDate getDtInicioVigencia() {
-		return dtInicioVigencia;
+	public LocalDate getMenorDataInicio() {
+		return menorDataInicio;
 	}
-	public void setDtInicioVigencia(LocalDate dtInicioVigencia) {
-		this.dtInicioVigencia = dtInicioVigencia;
+	public void setMenorDataInicio(LocalDate menorDataInicio) {
+		this.menorDataInicio = menorDataInicio;
 	}
-	public LocalDate getDtFimVigencia() {
-		return dtFimVigencia;
+	public LocalDate getMaiorDataInicio() {
+		return maiorDataInicio;
 	}
-	public void setDtFimVigencia(LocalDate dtFimVigencia) {
-		this.dtFimVigencia = dtFimVigencia;
+	public void setMaiorDataInicio(LocalDate maiorDataInicio) {
+		this.maiorDataInicio = maiorDataInicio;
+	}
+	public LocalDate getMenorDataFim() {
+		return menorDataFim;
+	}
+	public void setMenorDataFim(LocalDate menorDataFim) {
+		this.menorDataFim = menorDataFim;
+	}
+	public LocalDate getMaiorDataFim() {
+		return maiorDataFim;
+	}
+	public void setMaiorDataFim(LocalDate maiorDataFim) {
+		this.maiorDataFim = maiorDataFim;
 	}
 	public String getFranquia() {
 		return franquia;
@@ -67,5 +81,6 @@ public class SeguroSeletor extends BaseSeletor{
 	public void setCarroReserva(String carroReserva) {
 		this.carroReserva = carroReserva;
 	}
+	
 	
 }

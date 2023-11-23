@@ -16,11 +16,13 @@ public class ClienteSpecification {
 			List<Predicate> predicates = new ArrayList<>();
 			
 			if(seletor.getNome() != null && !seletor.getNome().trim().isEmpty()) {
-				predicates.add(cb.like(root.get("nome"), "%" + seletor.getNome().toLowerCase() + "%"));
+				predicates.add(cb.like(root.get("nome"),
+						"%" + seletor.getNome().toLowerCase() + "%"));
 			}
 			
 			if(seletor.getCpf() != null && !seletor.getCpf().trim().isEmpty()) {
-				predicates.add(cb.like(root.get("cpf"), "%" + seletor.getCpf() + "%"));
+				predicates.add(cb.like(root.get("cpf"),
+						"%" + seletor.getCpf() + "%"));
 			}
 			if(seletor.getDataNascimentoInicial() != null && !seletor.getDataNascimentoInicial().toString().trim().isEmpty()
             		&& seletor.getDataNascimentoFinal() != null && !seletor.getDataNascimentoFinal().toString().trim().isEmpty()) {

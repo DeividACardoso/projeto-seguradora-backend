@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.senac.seguradora.projetoseguradora.exception.CampoInvalidoException;
 import br.senac.seguradora.projetoseguradora.model.entidade.Endereco;
+import br.senac.seguradora.projetoseguradora.model.seletor.EnderecoSeletor;
 import br.senac.seguradora.projetoseguradora.service.EnderecoService;
 
 @RestController
@@ -28,6 +29,11 @@ public class EnderecoController {
 	@GetMapping(path = "/todos")
 	public List<Endereco> listarTodosEnderecos(){
 		return enderecoService.listarTodos();
+	}
+	
+	@PostMapping(path = "/filtro")
+	public List<Endereco> listarComSeletor(@RequestBody EnderecoSeletor seletor){
+		return enderecoService.listarComSeletor(seletor);
 	}
 	
 	@PostMapping(path = "/{id}")

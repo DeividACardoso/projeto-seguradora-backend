@@ -45,12 +45,12 @@ import br.senac.seguradora.projetoseguradora.service.SeguroService;
 		return seguroService.listarPorId(id);
 	}
 	
-	@PostMapping
+	@PostMapping(path = "/salvar")
 	public Seguro salvar(@RequestBody Seguro novoSeguro){
 		return seguroService.salvar(novoSeguro);
 	}
 	
-	@PutMapping
+	@PutMapping(path = "/atualizar")
 	public boolean atualizar(@RequestBody Seguro seguroPAtualizar){
 		return seguroService.atualizar(seguroPAtualizar) != null;
 	}
