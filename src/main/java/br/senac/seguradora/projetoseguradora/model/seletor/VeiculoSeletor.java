@@ -68,5 +68,11 @@ public class VeiculoSeletor extends BaseSeletor{
 	public void setMaiorValor(Double maiorValor) {
 		this.maiorValor = maiorValor;
 	}
+	public Double getValor() {
+		return valor;
+	}
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
 	
 }

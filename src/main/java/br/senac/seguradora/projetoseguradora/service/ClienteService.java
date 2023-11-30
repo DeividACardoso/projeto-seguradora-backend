@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import br.senac.seguradora.projetoseguradora.exception.CampoInvalidoException;
 import br.senac.seguradora.projetoseguradora.model.entidade.Cliente;
 import br.senac.seguradora.projetoseguradora.model.repository.ClienteRepository;
+import br.senac.seguradora.projetoseguradora.model.repository.EnderecoRepository;
 import br.senac.seguradora.projetoseguradora.model.seletor.ClienteSeletor;
 import br.senac.seguradora.projetoseguradora.model.specification.ClienteSpecification;
 import jakarta.transaction.Transactional;
@@ -18,6 +19,9 @@ public class ClienteService {
 
 	@Autowired
 	private ClienteRepository clienteRepository;
+	
+	@Autowired
+	private EnderecoRepository enderecoRepository;
 	
 	@Transactional
 	public List<Cliente> listarTodos() {
@@ -30,6 +34,12 @@ public class ClienteService {
 	
 	public Cliente salvar(Cliente novoCliente) throws CampoInvalidoException {
 		validarCamposObrigatorios(novoCliente);
+		
+		if(novoCliente.getEndereco().getId() == null) {
+			novoCliente.setEndereco(enderecoRepository.save(novoCliente.getEndereco()));
+		}
+		
+		
 		return clienteRepository.save(novoCliente);
 	}
 	
@@ -43,6 +53,10 @@ public class ClienteService {
 		mensagemValidacao += validarCampoString(cliente.getNome(), "nome");
 		mensagemValidacao += validarCampoString(cliente.getCpf(), "cpf");
 		mensagemValidacao += validarCampoString(cliente.getTelefone(), "telefone");
+		
+		if(cliente.getEndereco() == null) {
+			mensagemValidacao += "Informe o endereço";
+		}
 		
 		if(!mensagemValidacao.isEmpty()) {
 			throw new CampoInvalidoException(mensagemValidacao);
