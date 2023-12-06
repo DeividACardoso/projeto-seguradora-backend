@@ -10,22 +10,22 @@ import jakarta.persistence.OneToOne;
 
 public class SeguroSeletor extends BaseSeletor{
 	
-	private String nomeCliente;
+	private String cpfCliente;
 	private String placaVeiculo;
 	private String numeroProposta;
-	private LocalDate menorDataInicio;
-	private LocalDate maiorDataInicio;
-	private LocalDate menorDataFim;
-	private LocalDate maiorDataFim;
+	private LocalDate dtInicioComecoVigencia;
+	private LocalDate dtFimComecoVigencia;
+	private LocalDate dtInicioFimVigencia;
+	private LocalDate dtFimFimVigencia;
 	private String franquia;
 	private String assistencia;
 	private String carroReserva;
 	
-	public String getNomeCliente() {
-		return nomeCliente;
+	public String getCpfCliente() {
+		return cpfCliente;
 	}
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
 	}
 	public String getPlacaVeiculo() {
 		return placaVeiculo;
@@ -39,29 +39,29 @@ public class SeguroSeletor extends BaseSeletor{
 	public void setNumeroProposta(String numeroProposta) {
 		this.numeroProposta = numeroProposta;
 	}
-	public LocalDate getMenorDataInicio() {
-		return menorDataInicio;
+	public LocalDate getDtInicioComecoVigencia() {
+		return dtInicioComecoVigencia;
 	}
-	public void setMenorDataInicio(LocalDate menorDataInicio) {
-		this.menorDataInicio = menorDataInicio;
+	public void setDtInicioComecoVigencia(LocalDate dtInicioComecoVigencia) {
+		this.dtInicioComecoVigencia = dtInicioComecoVigencia;
 	}
-	public LocalDate getMaiorDataInicio() {
-		return maiorDataInicio;
+	public LocalDate getDtFimComecoVigencia() {
+		return dtFimComecoVigencia;
 	}
-	public void setMaiorDataInicio(LocalDate maiorDataInicio) {
-		this.maiorDataInicio = maiorDataInicio;
+	public void setDtFimComecoVigencia(LocalDate dtFimComecoVigencia) {
+		this.dtFimComecoVigencia = dtFimComecoVigencia;
 	}
-	public LocalDate getMenorDataFim() {
-		return menorDataFim;
+	public LocalDate getDtInicioFimVigencia() {
+		return dtInicioFimVigencia;
 	}
-	public void setMenorDataFim(LocalDate menorDataFim) {
-		this.menorDataFim = menorDataFim;
+	public void setDtInicioFimVigencia(LocalDate dtInicioFimVigencia) {
+		this.dtInicioFimVigencia = dtInicioFimVigencia;
 	}
-	public LocalDate getMaiorDataFim() {
-		return maiorDataFim;
+	public LocalDate getDtFimFimVigencia() {
+		return dtFimFimVigencia;
 	}
-	public void setMaiorDataFim(LocalDate maiorDataFim) {
-		this.maiorDataFim = maiorDataFim;
+	public void setDtFimFimVigencia(LocalDate dtFimFimVigencia) {
+		this.dtFimFimVigencia = dtFimFimVigencia;
 	}
 	public String getFranquia() {
 		return franquia;

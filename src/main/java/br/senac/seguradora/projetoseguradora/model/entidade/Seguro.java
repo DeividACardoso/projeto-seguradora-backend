@@ -22,10 +22,10 @@ public class Seguro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToOne
-	@JoinColumn(name = "idcliente")
+	@JoinColumn(name = "id_cliente")
 	private Cliente cliente;
 	@OneToOne
-	@JoinColumn(name = "idveiculo")
+	@JoinColumn(name = "id_veiculo")
 	private Veiculo veiculo;
 	private String numeroProposta;
 	private LocalDate dtInicioVigencia;

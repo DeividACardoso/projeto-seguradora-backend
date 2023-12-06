@@ -36,7 +36,7 @@ public class ClienteController {
 		return clienteService.listarComSeletor(seletor);
 	}
 	
-	@PostMapping(path = "/{id}")
+	@GetMapping(path = "/{id}")
 	public Cliente listarPorId(@PathVariable Integer id) {
 		return clienteService.listarPorId(id);
 	}

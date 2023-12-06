@@ -48,12 +48,12 @@ public class VeiculoController {
 			return veiculoService.inserir(novoVeiculo);
 		}
 
-		@PutMapping(path = "/atualizar")
+		@PutMapping
 		public boolean atualizar(@RequestBody Veiculo veiculoParaAtualizar) throws CampoInvalidoException {
 			return veiculoService.atualizar(veiculoParaAtualizar) != null;
 		}
 		
-		@DeleteMapping(path = "/{id}")
+		@DeleteMapping(path = "delete-id/{id}")
 		public boolean excluir(@PathVariable Integer id) {
 			return veiculoService.excluir(id);
 		}

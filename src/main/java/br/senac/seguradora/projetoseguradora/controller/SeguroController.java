@@ -35,27 +35,22 @@ import br.senac.seguradora.projetoseguradora.service.SeguroService;
 		return seguroService.listarComSeletor(seletor);
 	}
 	
-	@GetMapping("/{id}")
-	public Seguro pesquisarPorId(@PathVariable Integer id){
-		return seguroService.consultarPorId(id);
-	}
-	
-	@PostMapping(path = "/{id}")
+	@GetMapping(path = "/{id}")
 	public Seguro listarPorId(@PathVariable Integer id) {
 		return seguroService.listarPorId(id);
 	}
 	
-	@PostMapping(path = "/salvar")
+	@PostMapping
 	public Seguro salvar(@RequestBody Seguro novoSeguro){
 		return seguroService.salvar(novoSeguro);
 	}
 	
-	@PutMapping(path = "/atualizar")
+	@PutMapping
 	public boolean atualizar(@RequestBody Seguro seguroPAtualizar){
 		return seguroService.atualizar(seguroPAtualizar) != null;
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete-id/{id}")
 	public boolean excluir(@PathVariable Integer id) {
 		return seguroService.excluir(id);
 	}

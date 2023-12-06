@@ -34,15 +34,27 @@ public class ClienteService {
 	
 	public Cliente salvar(Cliente novoCliente) throws CampoInvalidoException {
 		validarCamposObrigatorios(novoCliente);
+		if(novoCliente.getCpf() != null) {
+			removerMascara(novoCliente);
+		}
 		
 		if(novoCliente.getEndereco().getId() == null) {
 			novoCliente.setEndereco(enderecoRepository.save(novoCliente.getEndereco()));
 		}
-		
-		
 		return clienteRepository.save(novoCliente);
 	}
 	
+	private void removerMascara(Cliente novoCliente) {
+        // Define the regex pattern
+        String regex = "[\\s.\\-\\(\\)]+";
+        System.out.println("Sem tirar Mascara: " + novoCliente.getCpf() + " " + novoCliente.getTelefone());
+		String cpfSemMascara = novoCliente.getCpf().replaceAll(regex, "");
+		String telefoneSemMascara = novoCliente.getTelefone().replaceAll(regex, "");
+		novoCliente.setCpf(cpfSemMascara);
+		novoCliente.setTelefone(telefoneSemMascara);
+		System.out.println("Sem Mascara: " + novoCliente.getCpf() + " " + novoCliente.getTelefone());
+	}
+
 	public Object atualizar(Cliente clienteParaAtualizar) throws CampoInvalidoException {
 		validarCamposObrigatorios(clienteParaAtualizar);
 		return clienteRepository.save(clienteParaAtualizar);
@@ -76,8 +88,19 @@ public class ClienteService {
 	}
 
 	public List<Cliente> listarComSeletor(ClienteSeletor seletor) {
+		if(seletor.getCpf() != null) {
+			removerMascaraDoSeletor(seletor);
+		}
 		Specification<Cliente> specification = ClienteSpecification.comFiltros(seletor);
 		return clienteRepository.findAll(specification);
+	}
+
+	private void removerMascaraDoSeletor(ClienteSeletor seletor) {
+        String regex = "[\\s.\\-\\(\\)]+";
+        System.out.println("Sem tirar Mascara: " + seletor.getCpf());
+        String cpfSemMascara = seletor.getCpf().replaceAll(regex, "");
+		seletor.setCpf(cpfSemMascara);
+		System.out.println("Sem Mascara: " + seletor.getCpf());
 	}
 	
 }
