@@ -3,6 +3,7 @@ package br.senac.seguradora.projetoseguradora.model.seletor;
 
 public class VeiculoSeletor extends BaseSeletor{
 
+	private Integer idCliente;
 	private String marca;
 	private String modelo;
 	private String placaVeiculo;
@@ -73,6 +74,12 @@ public class VeiculoSeletor extends BaseSeletor{
 	}
 	public void setValor(Double valor) {
 		this.valor = valor;
+	}
+	public Integer getIdCliente() {
+		return idCliente;
+	}
+	public void setIdCliente(Integer idCliente) {
+		this.idCliente = idCliente;
 	}
 	
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.senac.seguradora.projetoseguradora.exception.CampoInvalidoException;
 import br.senac.seguradora.projetoseguradora.model.entidade.Seguro;
 import br.senac.seguradora.projetoseguradora.model.seletor.SeguroSeletor;
 import br.senac.seguradora.projetoseguradora.service.SeguroService;
@@ -41,7 +42,7 @@ import br.senac.seguradora.projetoseguradora.service.SeguroService;
 	}
 	
 	@PostMapping
-	public Seguro salvar(@RequestBody Seguro novoSeguro){
+	public Seguro salvar(@RequestBody Seguro novoSeguro) throws CampoInvalidoException{
 		return seguroService.salvar(novoSeguro);
 	}
 	

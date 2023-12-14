@@ -83,7 +83,14 @@ public class ClienteService {
 	}
 
 	public boolean excluirPorId(Integer id) {
-		clienteRepository.deleteById(id);
+		boolean seguroVigente = verificarSeguroVigente();
+		if(!seguroVigente) {
+			clienteRepository.deleteById(id);
+		}
+		return seguroVigente;
+	}
+
+	private boolean verificarSeguroVigente() {
 		return true;
 	}
 

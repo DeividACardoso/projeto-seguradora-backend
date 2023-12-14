@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.NoArgsConstructor;
 
@@ -21,9 +23,12 @@ public class Veiculo {
 	private String combustivel;
 	private Double valor;
 	private String placaVeiculo;
+	@ManyToOne
+	@JoinColumn(name = "id_cliente")
+	private Cliente cliente;
 	
 	public Veiculo(Integer id, String marca, String modelo, Integer anoModelo, String combustivel, Double valor,
-			String placaVeiculo) {
+			String placaVeiculo, Cliente cliente) {
 		super();
 		this.id = id;
 		this.marca = marca;
@@ -32,10 +37,11 @@ public class Veiculo {
 		this.combustivel = combustivel;
 		this.valor = valor;
 		this.placaVeiculo = placaVeiculo;
+		this.cliente = cliente;
 	}
-
 	public Veiculo() {
 	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -77,5 +83,11 @@ public class Veiculo {
 	}
 	public void setCombustivel(String combustivel) {
 		this.combustivel = combustivel;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }

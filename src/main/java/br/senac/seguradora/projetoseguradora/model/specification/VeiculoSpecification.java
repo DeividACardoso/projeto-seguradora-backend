@@ -48,6 +48,10 @@ public class VeiculoSpecification {
 			if(seletor.getCombustivel() != null && !seletor.getCombustivel().trim().isEmpty()) {
 				predicates.add(cb.like(root.get("combustivel"), "%" + seletor.getCombustivel() + "%"));
 			}
+			//IdCliente
+			if(seletor.getIdCliente() != null && seletor.getIdCliente() > 0) {
+				predicates.add(cb.equal(root.join("cliente").get("id"), seletor.getIdCliente()));
+			}
 			return cb.and(predicates.toArray(new Predicate[0]));
 		};
 	}
