@@ -28,23 +28,24 @@ public class Seguro {
 	@JoinColumn(name = "id_veiculo")
 	private Veiculo veiculo;
 	private String numeroProposta;
-	private LocalDate dtInicioVigencia;
-	private LocalDate dtFimVigencia;
+	private LocalDate dataInicioVigencia;
+	private LocalDate dataFimVigencia;
 	private double rcfDanosMateriais;
 	private double rcfDanosCorporais;
 	private String franquia;
 	private String assistencia;
 	private String carroReserva;
 	
-	public Seguro(Cliente cliente, Veiculo veiculo, String numeroProposta, LocalDate dtInicioVigencia,
-			LocalDate dtFimVigencia, double rcfDanosMateriais, double rcfDanosCorporais, String franquia,
+	public Seguro(Integer id, Cliente cliente, Veiculo veiculo, String numeroProposta, LocalDate dataInicioVigencia,
+			LocalDate dataFimVigencia, double rcfDanosMateriais, double rcfDanosCorporais, String franquia,
 			String assistencia, String carroReserva) {
 		super();
+		this.id = id;
 		this.cliente = cliente;
 		this.veiculo = veiculo;
 		this.numeroProposta = numeroProposta;
-		this.dtInicioVigencia = dtInicioVigencia;
-		this.dtFimVigencia = dtFimVigencia;
+		this.dataInicioVigencia = dataInicioVigencia;
+		this.dataFimVigencia = dataFimVigencia;
 		this.rcfDanosMateriais = rcfDanosMateriais;
 		this.rcfDanosCorporais = rcfDanosCorporais;
 		this.franquia = franquia;
@@ -52,7 +53,6 @@ public class Seguro {
 		this.carroReserva = carroReserva;
 	}
 	public Seguro() {
-		super();
 	}
 	
 	public Integer getId() {
@@ -79,17 +79,17 @@ public class Seguro {
 	public void setNumeroProposta(String numeroProposta) {
 		this.numeroProposta = numeroProposta;
 	}
-	public LocalDate getDtInicioVigencia() {
-		return dtInicioVigencia;
+	public LocalDate getDataInicioVigencia() {
+		return dataInicioVigencia;
 	}
-	public void setDtInicioVigencia(LocalDate dtInicioVigencia) {
-		this.dtInicioVigencia = dtInicioVigencia;
+	public void setDataInicioVigencia(LocalDate dataInicioVigencia) {
+		this.dataInicioVigencia = dataInicioVigencia;
 	}
-	public LocalDate getDtFimVigencia() {
-		return dtFimVigencia;
+	public LocalDate getDataFimVigencia() {
+		return dataFimVigencia;
 	}
-	public void setDtFimVigencia(LocalDate dtFimVigencia) {
-		this.dtFimVigencia = dtFimVigencia;
+	public void setDataFimVigencia(LocalDate dataFimVigencia) {
+		this.dataFimVigencia = dataFimVigencia;
 	}
 	public double getRcfDanosMateriais() {
 		return rcfDanosMateriais;
@@ -121,5 +121,6 @@ public class Seguro {
 	public void setCarroReserva(String carroReserva) {
 		this.carroReserva = carroReserva;
 	}
+	
 	
 }
